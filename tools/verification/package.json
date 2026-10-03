@@ -1,0 +1,10 @@
+{
+  "name": "specqr-rust-verification",
+  "private": true,
+  "type": "module",
+  "description": "Isolated development-only reference encoders and decoders for SpecQR Rust",
+  "devDependencies": {
+    "jsqr": "1.4.0",
+    "nayuki-qr-code-generator": "1.8.0"
+  }
+}

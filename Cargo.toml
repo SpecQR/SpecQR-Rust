@@ -1,0 +1,36 @@
+[package]
+name = "specqr"
+version = "0.1.0-rc.1"
+edition = "2024"
+rust-version = "1.85.1"
+description = "Dependency-free, from-scratch QR Code Model 2 encoder with GS1, Structured Append, and portable rendering"
+license = "MIT AND Unicode-3.0"
+repository = "https://github.com/SpecQR/SpecQR-Rust"
+readme = "README.md"
+keywords = ["qr", "qrcode", "gs1", "barcode", "png"]
+categories = ["encoding", "multimedia::images"]
+include = ["src/**", "tests/**", "examples/**", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE", "LICENSE-UNICODE", "NOTICE", "CONTRIBUTING.md", "SECURITY.md", "docs/**", "tools/*.py", "tools/verification/*.py", "tools/verification/*.mjs", "tools/verification/*.json", "tools/verification/*.txt", "tools/verification/*.md", "tools/verification/gs1/*.py", "tools/verification/gs1/*.mjs", "tools/verification/gs1/*.json", "tools/verification/zxing-java/*.java"]
+
+[lib]
+name = "specqr"
+path = "src/lib.rs"
+
+[[bin]]
+name = "specqr"
+path = "src/main.rs"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[dependencies]
+
+[dev-dependencies]
+
+[[bin]]
+name = "conformance"
+path = "src/bin/conformance.rs"
+required-features = ["conformance"]
+
+[features]
+default = []
+conformance = []

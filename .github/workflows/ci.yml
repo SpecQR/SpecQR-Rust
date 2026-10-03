@@ -1,0 +1,120 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  portable:
+    name: Rust ${{ matrix.rust }} / ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        rust: ['1.85.1', 'stable']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Select official Rust toolchain
+        shell: bash
+        run: |
+          rustup toolchain install '${{ matrix.rust }}' --profile minimal --component clippy,rustfmt
+          rustup override set '${{ matrix.rust }}'
+          rustc --version --verbose
+          cargo --version
+      - name: Verify pinned Unicode profile generator
+        run: python tools/generate_idna_profile.py --check
+      - name: Debug tests
+        run: cargo test --offline --all-targets --all-features
+      - name: Release tests
+        run: cargo test --offline --release --all-targets --all-features
+      - name: Rustdoc tests
+        run: cargo test --offline --doc
+      - name: Warning-clean Clippy
+        run: cargo clippy --offline --all-targets --all-features -- -D warnings
+      - name: Warning-clean documentation
+        env:
+          RUSTDOCFLAGS: -D warnings
+        run: cargo doc --offline --no-deps
+      - name: Package, installed CLI and detached consumer
+        run: python tools/verify_package.py
+      - name: Canonical formatting
+        if: matrix.rust == 'stable' && matrix.os == 'ubuntu-latest'
+        run: cargo fmt --all -- --check
+  compile32:
+    name: MSRV 32-bit compile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: rustup toolchain install 1.85.1 --profile minimal --target i686-unknown-linux-gnu
+      - run: cargo +1.85.1 check --offline --all-targets --all-features --target i686-unknown-linux-gnu
+  independent:
+    name: Independent conformance and decoders
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.19.0'
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: SpecQR/SpecQR
+          ref: 15ad15e5c770ea0e39072f8f88b2733018f02ffd
+          path: .baseline/SpecQR
+      - run: rustup toolchain install 1.85.1 --profile minimal
+      - run: rustup override set 1.85.1
+      - name: Test-only conformance build
+        run: cargo build --offline --release --features conformance --bin conformance
+      - name: Install pinned independent development oracles
+        run: npm ci --prefix tools/verification --ignore-scripts
+      - name: Exact owner and independent Nayuki conformance
+        run: python tools/verification/verify_conformance.py --baseline .baseline/SpecQR
+      - name: GS1 catalog and URL audit, original profile
+        run: python tools/verification/verify_gs1.py --baseline .baseline/SpecQR --node-profile 24.19.0 --output artifacts/gs1-conformance.json
+      - name: Complete Structured Append diagnostics and merge
+        run: python tools/verification/verify_structured_append.py --baseline .baseline/SpecQR
+      - name: jsQR real matrix and PNG decoding
+        run: python tools/verification/verify_jsqr.py
+      - name: ZXing C++ decoding and metadata
+        run: python tools/verification/verify_decoders.py --decoder cpp --dependency-dir .tools/zxing-cpp
+      - name: ZXing Java decoding and metadata
+        run: python tools/verification/verify_decoders.py --decoder java --dependency-dir .tools/zxing-java
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.21.0'
+      - name: GS1 catalog and URL audit, current profile
+        run: python tools/verification/verify_gs1.py --baseline .baseline/SpecQR --node-profile 24.21.0 --output artifacts/gs1-conformance-node24.21.json
+      - name: Preserve verification reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: independent-reports
+          path: artifacts/*.json
+          if-no-files-found: error
+  required:
+    name: All required checks
+    runs-on: ubuntu-latest
+    needs: [portable, compile32, independent]
+    if: always()
+    steps:
+      - name: Require every lane
+        env:
+          PORTABLE: ${{ needs.portable.result }}
+          COMPILE32: ${{ needs.compile32.result }}
+          INDEPENDENT: ${{ needs.independent.result }}
+        run: test "$PORTABLE" = success && test "$COMPILE32" = success && test "$INDEPENDENT" = success

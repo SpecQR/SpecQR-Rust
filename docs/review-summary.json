@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "status": "accepted-within-reviewed-scope",
+  "date": "2026-10-03",
+  "release": "0.1.0-rc.1",
+  "reviewType": "Independent integrated read-only source and executable review",
+  "conclusion": "No remaining release-blocking runtime, API, resource, documentation, or package finding was identified against the exact frozen source. Finite review is not standards certification.",
+  "sourceSha256": {
+    "Cargo.lock": "363ee05de0a2777551f1aa94d3a34402951fdb6a58a92eacdf7a86417a637c7c",
+    "Cargo.toml": "69c0d910832e403148b8cce423487ceca760fbfee1277a620b0a05d6a09eafce",
+    "src/api.rs": "ac2306d6f1db8de40b22da1913b33fc8aabc115b30b315d237eec040fbf45c62",
+    "src/bin/conformance.rs": "7916769e5ef57e7202b41a06de1270543d3a06d57da1cf80e1cd2c1b536ffe4b",
+    "src/core.rs": "28b12aba20a2198c9f0a77ea8afc27be80511f60405ef411be63819eebe8102f",
+    "src/error.rs": "62232ff3bc9c0ea500dbc41e131d975479b47a7ffc4de8754e2d7025ef9d38a5",
+    "src/gs1.rs": "f4f3c1b70822a14bae9141b94ebd42ae1cf03d4227662127f2b10cd7121bb26d",
+    "src/idna_table.rs": "7d53f1d9950e050103f3dd442e67b6a12f380789822d892fe486d16e2a5119ed",
+    "src/json.rs": "c3356e50de5a258c61b984d63a3759335d35d15a8f41ef46b93ff44423eedc26",
+    "src/kanji.rs": "8fbba0bda6fa6da20e7f81aaf95cf4344d8bde399e3b6e0c19df8010baea8715",
+    "src/lib.rs": "4f138ee76ac03f6f10f145d75263fd8c0f9b1860836af039b0cdd510d9f2f2ed",
+    "src/main.rs": "0853afd3a6522d7d21ad3a065a1557e40bedac2a43b5237361a947950b1f0f76",
+    "src/render.rs": "3e776fd197b1baad4184240ae0f4c1a59e2fe7e2745b62c140fed80619ae1b77",
+    "src/segment.rs": "2178fe90e99adc8b9b4fef8452df75be5a8cf265dc854de5b9e8b233dc76680d",
+    "src/structured_append.rs": "8208d2766965d710561e8ac3fcc72d8ed77cb7a971e4611fc0cc4d6aab142877",
+    "src/tables.rs": "850dd94b5c8141e5fbb769df5027a545aea46868746c24027042acbe45cf9dff"
+  },
+  "sourceFingerprintManifestSha256": "e3c5d103e6cf87296b51452fb0559e358c588978c60d1891ede514a889f0de45",
+  "sourceFingerprintManifestFormat": "UTF-8 JSON of sourceSha256 sorted by key, indent=2, with a final newline",
+  "sourceStayedUnchangedAcrossFinalChecks": true,
+  "tools": {
+    "platform": "Linux x86_64",
+    "msrv": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "stable": "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "node": "24.19.0",
+    "python": "3.12.14"
+  },
+  "checks": {
+    "msrvDebugRepositoryTests": {
+      "status": "passed",
+      "tests": 69,
+      "command": "cargo +1.85.1 test --offline --all-features --all-targets"
+    },
+    "stableReleaseRepositoryTests": {
+      "status": "passed",
+      "tests": 69,
+      "command": "cargo +1.99.0 test --offline --release --all-features --all-targets"
+    },
+    "msrvRustdoc": {
+      "status": "passed",
+      "tests": 1,
+      "command": "cargo +1.85.1 test --offline --doc",
+      "rustdocWarningsDenied": true
+    },
+    "markdownRustExamples": {
+      "status": "passed",
+      "examples": 6,
+      "sources": [
+        "README.md",
+        "docs/api.md",
+        "docs/gs1.md",
+        "docs/structured-append.md"
+      ],
+      "compiledAndExecuted": true
+    },
+    "relativeDocumentationLinks": {
+      "status": "passed",
+      "brokenLinks": 0
+    },
+    "independentDirectApiProbes": {
+      "status": "passed",
+      "countedChecksPerRun": 132250,
+      "toolchains": [
+        "1.85.1",
+        "1.99.0"
+      ],
+      "malformedUnicodeStrings": 6000,
+      "bruteForceOptimizedTextCases": 1000,
+      "optimizationVersionGroups": 3,
+      "generatedQrRoundTrips": 300,
+      "randomStructuredAppendTextCases": 80,
+      "randomStructuredAppendBinaryCases": 80,
+      "concurrentThreads": 8,
+      "generationsPerThread": 20,
+      "coverage": [
+        "typed version/mode/ECC/control and coordinate bounds",
+        "JSON malformed escapes, surrogates, depth and non-finite values",
+        "GS1 text and URL malformed inputs",
+        "render matrix, geometry and resource limits",
+        "owned result snapshots and Send + Sync compilation",
+        "independent exhaustive-partition optimal segmentation cost",
+        "planning/generation agreement",
+        "text/raw Structured Append round trips and parity",
+        "oversized arithmetic estimates without bit materialization"
+      ],
+      "probeSourceSha256": "1400de50637f68601aff615c47bf12450f2133f697d2ed5bb980238b8f61b725",
+      "interpretation": "Counted probe operations/assertions, not 132250 independent randomly generated inputs."
+    },
+    "kanjiRepertoire": {
+      "status": "passed",
+      "unicodeScalars": 1112064,
+      "supportedScalars": 6953,
+      "comparison": "Exact owner-JavaScript supported set and 13-bit values",
+      "baselineCommit": "15ad15e5c770ea0e39072f8f88b2733018f02ffd"
+    },
+    "urlBrowserStability": {
+      "status": "passed",
+      "normalizedSuccesses": 1540,
+      "browserRejectedOrChanged": 0,
+      "previouslyBrowserInvalidCasesNowRejected": 440,
+      "reference": "Node 24.19.0 WHATWG URL",
+      "includes": [
+        "ASCII hosts",
+        "IPv4",
+        "IPv6",
+        "credentials",
+        "base prefixes",
+        "encoded dot-only GS1 values",
+        "unknown queries",
+        "bounded Unicode hostnames"
+      ]
+    },
+    "resourceRegression": {
+      "status": "passed",
+      "case": "10000 valid AI91 elements, 929999-byte element string",
+      "releaseSecondsBefore": 2.3174,
+      "releaseSecondsAfter": 0.0058,
+      "qualification": "Single-process observed measurements in this environment, not a service latency guarantee."
+    },
+    "detachedCargoPackage": {
+      "status": "passed",
+      "runtimeBuildDevCargoDependencies": 0,
+      "aggregateLicense": "MIT AND Unicode-3.0",
+      "edition": "2024",
+      "rustVersion": "1.85.1",
+      "buildScriptTargets": 0,
+      "freshEmptyCargoHome": true,
+      "allFeaturesPackagedTests": true,
+      "packagedRustdoc": true,
+      "installedCli": true,
+      "fullIndependentConsumerProbes": 132250,
+      "archiveInspection": [
+        "no absolute or parent-traversal paths",
+        "no symlinks or special files",
+        "no target/node_modules/git/cache contents",
+        "no private source paths",
+        "root license/security/contributing documents included"
+      ],
+      "qualification": "Verified an exported source archive and an extracted, isolated consumer; adding final summary documents changes archive bytes but does not change the reviewed runtime fingerprint."
+    },
+    "runtimeSourceInspection": {
+      "status": "passed",
+      "areas": [
+        "GF256/Reed-Solomon/interleaving",
+        "matrix function patterns and masks",
+        "segmentation and control ordering",
+        "planning and capacity arithmetic",
+        "GS1 and bounded URL parser",
+        "Structured Append split/parity/merge",
+        "SVG/PNG/pixels/data URLs",
+        "CLI and JSON",
+        "immutability and concurrency",
+        "resource/overflow/Unicode/panic boundaries"
+      ],
+      "unsafeRustForbidden": true,
+      "runtimeEncoderWrapperFound": false,
+      "thirdPartyRuntimeCargoDependencies": false
+    },
+    "separateConformanceEvidence": {
+      "status": "passed-source-match",
+      "report": "verification-summary.json",
+      "qualification": "The seven full conformance/decoder lanes were run by the separate conformance workflow; the reviewer independently checked that their source fingerprints match this frozen review."
+    }
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "P2",
+      "status": "resolved-and-retested",
+      "area": "src/gs1.rs element-string and human-readable parsers",
+      "issue": "Repeated UTF-16 prefix scans made valid many-element input quadratic.",
+      "resolution": "Use the validated ASCII-prefix offset invariant; successful parsing now has linear measured scaling."
+    },
+    {
+      "id": "R2",
+      "severity": "P2",
+      "status": "resolved-and-retested",
+      "area": "src/gs1.rs hostname mapping and ACE validation",
+      "issue": "Some decomposed/compatibility/format Unicode hosts serialized to ACE URLs rejected by browsers.",
+      "resolution": "Pinned Unicode 15.0.0 conservative rejection/lowercase/bidi data and ACE validation reject unsupported labels; supported outputs pass browser-stability probes."
+    },
+    {
+      "id": "R3",
+      "severity": "P2",
+      "status": "resolved-and-retested",
+      "area": "src/main.rs CLI argument boundary",
+      "issue": "Non-UTF-8 Unix arguments panicked through env::args.",
+      "resolution": "Fallible args_os conversion produces INVALID_INPUT and exit 1."
+    },
+    {
+      "id": "R4",
+      "severity": "P2",
+      "status": "resolved-and-retested",
+      "area": "src/main.rs CLI help handling",
+      "issue": "A global help scan intercepted literal --help values passed through --text or --.",
+      "resolution": "Parse help only as an option; explicit literal values encode correctly."
+    },
+    {
+      "id": "R5",
+      "severity": "P3",
+      "status": "resolved-and-retested",
+      "area": "Cargo.toml package inventory",
+      "issue": "Packaged README linked to root security/contributing files omitted from the include list.",
+      "resolution": "Include referenced documents and Unicode license; detached archive inventory checked."
+    },
+    {
+      "id": "R6",
+      "severity": "P3",
+      "status": "resolved-and-rechecked",
+      "area": "docs/gs1.md and docs/structured-append.md",
+      "issue": "Documentation named a nonexistent generic append helper, wrong unknown-query policies, and imprecise one-symbol Structured Append behavior.",
+      "resolution": "Document actual GTIN/SSCC append helpers, preserve/reject policies, and ascending-version eligibility/skip behavior."
+    }
+  ],
+  "limits": [
+    "Executed independently on Linux x86_64 only. macOS, Windows, remote CI and public-clone checks are separate publication gates, not claimed here.",
+    "Miri, sanitizers, 32-bit runtime execution and scanner hardware/print tests were not independently run.",
+    "No ISO/GS1 certification or complete WHATWG/UTS #46 acceptance equivalence is claimed; Unicode host support is deliberately conservative.",
+    "Finite malformed-input/property probes do not establish behavior under arbitrary simultaneous load, out-of-memory conditions, or every possible payload.",
+    "The reviewer did not push, publish, tag, merge or upload a release."
+  ]
+}

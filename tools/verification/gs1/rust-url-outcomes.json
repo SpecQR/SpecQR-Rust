@@ -1,0 +1,2079 @@
+{
+  "schemaVersion": 1,
+  "reviewStatus": "reviewed",
+  "policy": "Fresh Rust outcomes reviewed against the independently implemented Unicode15.0.0 conservative URL profile: pinned lowercase and rejection tables, explicit alternate-dot/fullwidth mapping, RFC3492 roundtrip, and conservative RTL checks. No Kotlin result is an expected Rust outcome. Unknown category changes are failures; see README.md.",
+  "cases": [
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u4f8b\u3048.\u30c6\u30b9\u30c8/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--r8jz45g.xn--zckzah/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://fa\u00df.de/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--fa-hia.de/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u03b2\u03cc\u03bb\u03bf\u03c2.gr/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--nxasmm1c.gr/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u03c2.gr/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--3xa.gr/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u03c3.gr/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--4xa.gr/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u2603.net/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--n3h.net/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\ud83d\ude00.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--e28h.test/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://a\u200cb.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://a\u200db.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://a\u3002b/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://a.b/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u00e9.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--9ca.test/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\uff45\uff58\uff41\uff4d\uff50\uff4c\uff45.com/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u00ad.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://.test/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u1e9e.de/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--zca.de/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\ud801\udc00.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--hj8c.test/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://\u0600.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--a/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "ACE decodes to U+0080 control, rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Empty ACE payload is rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--abc/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "ACE decodes to forbidden controls, rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--abc-/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "ACE decodes to all-ASCII value; noncanonical ACE is rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--a-ecp.ru/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "ACE decodes to a plus U+2488 DIGIT ONE FULL STOP. The pinned Unicode15.0.0 profile rejects NFKC-unstable scalars before re-encoding, preventing a noncanonical A-label."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--fa-hia.de/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--fa-hia.de/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--e28h.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--e28h.test/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--0.pt/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Truncated Punycode input is rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--bcher-kva.de/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--bcher-kva.de/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--a.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "ACE label decodes to U+0080 control, rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--a_.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Underscore is not a valid Punycode encoded digit, rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--%61.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "parse": {
+          "code": "INVALID_GS1",
+          "ok": false
+        },
+        "validate": {
+          "errors": [
+            {
+              "ai": null,
+              "code": "GS1_DIGITAL_LINK_INVALID_URI",
+              "count": null,
+              "elementIndex": null,
+              "expected": "absolute http or https URL",
+              "key": null,
+              "offset": null,
+              "reason": "invalid-uri",
+              "value": null
+            }
+          ],
+          "ok": false,
+          "warnings": []
+        }
+      },
+      "reason": "Percent-decoded ACE label decodes to U+0080 control, rejected."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--ls8h.test/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--ls8h.test/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://xn--3xa.gr/01/04912345678904",
+        "category": "idna"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://xn--3xa.gr/01/04912345678904"
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Independent bounded Rust host normalization: Unicode lowercase, alternate-dot/fullwidth-ASCII mapping, soft-hyphen removal, RFC3492 Punycode roundtrip, and forbidden-control/joiner validation. This is not a claim of complete UTS46/NFC processing."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/.",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/./21/S",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904/21/S?10=."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?10=.",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [
+            [
+              "10",
+              "."
+            ]
+          ],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "create",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "."
+          }
+        ],
+        "baseUrl": "https://example.com",
+        "category": "dot"
+      },
+      "rust": {
+        "create": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/..",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/../21/S",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904/21/S?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?10=..",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "create",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": ".."
+          }
+        ],
+        "baseUrl": "https://example.com",
+        "category": "dot"
+      },
+      "rust": {
+        "create": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/%2e",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/%2e/21/S",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904/21/S?10=."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?10=%2e",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              "."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [
+            [
+              "10",
+              "."
+            ]
+          ],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "create",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "."
+          }
+        ],
+        "baseUrl": "https://example.com",
+        "category": "dot"
+      },
+      "rust": {
+        "create": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/%2E.",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/%2E./21/S",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904/21/S?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?10=%2E.",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "create",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "."
+          }
+        ],
+        "baseUrl": "https://example.com",
+        "category": "dot"
+      },
+      "rust": {
+        "create": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/.%2E",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/.%2E/21/S",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904/21/S?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?10=.%2E",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "create",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "."
+          }
+        ],
+        "baseUrl": "https://example.com",
+        "category": "dot"
+      },
+      "rust": {
+        "create": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/%2e%2e",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904/10/%2e%2e/21/S",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904/21/S?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ],
+            [
+              "21",
+              "S"
+            ]
+          ],
+          "query": [],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?10=%2e%2e",
+        "category": "dot"
+      },
+      "rust": {
+        "normalize": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=.."
+        },
+        "parse": {
+          "elements": [
+            [
+              "01",
+              "04912345678904"
+            ],
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "ok": true,
+          "path": [
+            [
+              "01",
+              "04912345678904"
+            ]
+          ],
+          "query": [
+            [
+              "10",
+              ".."
+            ]
+          ],
+          "unknown": []
+        },
+        "validate": {
+          "errors": [],
+          "ok": true,
+          "warnings": []
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "create",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "."
+          }
+        ],
+        "baseUrl": "https://example.com",
+        "category": "dot"
+      },
+      "rust": {
+        "create": {
+          "ok": true,
+          "value": "https://example.com/01/04912345678904?10=."
+        }
+      },
+      "reason": "Lossless GS1 dot-only values: preserve the data element while parsing; emit . or .. in the query when creating or normalizing; retain other path qualifiers."
+    },
+    {
+      "case": {
+        "command": "url",
+        "input": "https://example.com/01/04912345678904?x=\ud800",
+        "category": "ordinary"
+      },
+      "rust": {
+        "code": "INVALID_INPUT",
+        "error": "SpecQrError",
+        "isSpecQRError": true,
+        "message": "Lone high surrogate"
+      },
+      "reason": "Rust String is Unicode scalar text. The strict JSON boundary rejects the unpaired UTF-16 surrogate before the GS1 API; no replacement/preprocessing conceals this input-domain difference."
+    }
+  ]
+}

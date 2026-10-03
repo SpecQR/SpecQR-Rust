@@ -1,0 +1,43 @@
+SpecQR Rust
+Copyright (c) 2026 SpecQR contributors
+
+From-scratch safe Rust QR Code Model 2 implementation based on the
+user-owned SpecQR algorithm and API contracts. It does not wrap, invoke,
+or depend on another edition or a third-party QR encoder. No unsafe Rust,
+FFI, external Cargo dependencies, generated native encoder, or runtime
+resource downloads are required.
+
+Behavioral baseline: SpecQR/SpecQR JavaScript revision
+15ad15e5c770ea0e39072f8f88b2733018f02ffd (v3.0.0-rc.2).
+Prior owner editions were inspected to preserve fixed API and safety rules:
+Python 1deb5cf83ed7a93eeb44138e5980a963a00cdffb,
+Java 1f2bf277a582f0eb4e31c9975443c1a76552aa23,
+Kotlin 33a4d1963160fde5cf46fbd8b53331dcbe88f375.
+
+QR structural, format/version BCH, Reed-Solomon, capacity and block tables
+implement published QR Code Model 2 parameters. The fixed 6,953-scalar
+Kanji mapping follows the owner's canonical WHATWG Encoding Standard
+Shift_JIS first-mapping table, not a host locale codec. Decoded source-table
+SHA-256: 90ede133127eca741de407d0f89cedbb4e3274a6308300207aea058df2151a87.
+
+The URL adapter is an independent bounded standard-library implementation.
+It does not implement the complete WHATWG/UTS #46 Unicode processing table.
+See docs/gs1.md for exact supported behavior and audited differences.
+
+Independent Nayuki, jsQR, ZXing-C++ and ZXing-Java encoders/decoders are
+verification-only oracles. They are installed separately by development
+scripts, never linked to or shipped as runtime Cargo dependencies. Their
+licenses remain in their own distributions. No third-party QR source was
+copied into the runtime.
+
+Conservative Unicode hostname data is generated from Unicode 15.0.0
+properties exposed by Python standard-library unicodedata. Unicode data
+and software license is included in LICENSE-UNICODE. The generator is
+tools/generate_idna_profile.py (SHA-256
+0e182eef73a8016665539bac55840875a40b738b8485f41039726dcce5900bfe).
+Generated semantic-record SHA-256:
+04b9ad19e0ba108ed6c7e5368dd3bb2805313d9f25d9cd15465b919d7b59a5c7.
+Runtime uses fixed lowercase/rejection/bidi data; it does not call Python.
+
+Original Rust code is MIT licensed; generated Unicode data retains the
+Unicode License v3. Aggregate Cargo SPDX expression: MIT AND Unicode-3.0.
