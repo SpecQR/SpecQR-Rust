@@ -99,6 +99,10 @@ jobs:
           node-version: '24.21.0'
       - name: GS1 catalog and URL audit, current profile
         run: python tools/verification/verify_gs1.py --baseline .baseline/SpecQR --node-profile 24.21.0 --output artifacts/gs1-conformance-node24.21.json
+      - name: Preserve all original FNC1 payload vectors
+        run: python tools/url-serialization/verify_fnc1.py --dependency-dir .tools/zxing-cpp
+      - name: Exact current TS URL serialization contracts
+        run: python tools/url-serialization/verify.py
       - name: Preserve verification reports
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

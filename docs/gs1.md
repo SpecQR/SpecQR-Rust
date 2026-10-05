@@ -54,3 +54,7 @@ GS1 の文字数/offset は元契約に合わせ UTF-16 code units、最大 1,00
 別の 39 hostname variants / 156 operations の safety corpus は、正規化を必要とする有効な Unicode 入力でも本プロファイルが拒否する場合を明示します。拒否は完全な IDNA で無効という意味ではありません。全 scalar の accepted-output 安定性検査も、未対応入力の受理や任意文字列の完全サポートを証明しません。
 
 可能なら通常の ASCII hostname を使ってください。事前に信頼できる完全な IDNA 実装で NFC/IDNA 処理した canonical A-label を渡す方法もありますが、この API は A-label を復号して同じプロファイルを検証するため、すべての有効な IDNA domain が通る保証はありません。単に Punycode 化して拒否を回避することはできません。未対応 domain を必要とする場合は、その処理を適切な URL ライブラリを持つアプリケーション側で行い、得られた完全 URL 文字列を一般の `generate` で QR 化できます。その場合に GS1 helper の検証済みという保証は付けないでください。
+
+## URL serialization compatibility (2026-10-05)
+
+base URL の空 fragment `#` は作成時に保持します。正規化は従来どおり空 fragment を除去し、非空 fragment は拒否します。 限定した URL 出力互換性の拡張であり、通常の QR 符号化・公開 API・runtime dependency は変更しません。既存の dot 値・NUL・IDNA・診断方針を保持します。[固定 corpus と再現手順](../tools/url-serialization/README.md) を参照してください。

@@ -1947,7 +1947,7 @@ pub fn create_digital_link_with_options(
         } else {
             Some(search)
         },
-        fragment: None,
+        fragment: url.fragment,
     }
     .serialize()
 }

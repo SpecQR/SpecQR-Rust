@@ -9,7 +9,7 @@ repository = "https://github.com/SpecQR/SpecQR-Rust"
 readme = "README.md"
 keywords = ["qr", "qrcode", "gs1", "barcode", "png"]
 categories = ["encoding", "multimedia::images"]
-include = ["src/**", "tests/**", "examples/**", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE", "LICENSE-UNICODE", "NOTICE", "CONTRIBUTING.md", "SECURITY.md", "docs/**", "tools/*.py", "tools/verification/*.py", "tools/verification/*.mjs", "tools/verification/*.json", "tools/verification/*.txt", "tools/verification/*.md", "tools/verification/gs1/*.py", "tools/verification/gs1/*.mjs", "tools/verification/gs1/*.json", "tools/verification/zxing-java/*.java"]
+include = ["src/**", "tests/**", "examples/**", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE", "LICENSE-UNICODE", "NOTICE", "CONTRIBUTING.md", "SECURITY.md", "docs/**", "tools/*.py", "tools/verification/*.py", "tools/verification/*.mjs", "tools/verification/*.json", "tools/verification/*.txt", "tools/verification/*.md", "tools/verification/gs1/*.py", "tools/verification/gs1/*.mjs", "tools/verification/gs1/*.json", "tools/verification/zxing-java/*.java", "tools/url-serialization/**"]
 
 [lib]
 name = "specqr"
