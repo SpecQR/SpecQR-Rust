@@ -13,8 +13,8 @@
 3. 実 Rust プロセスと pinned JavaScript/Nayuki の全マトリックス・data/ECC codeword 完全一致
 4. GS1 5,610 ケース / 15,690 操作を Node 24.19.0 と 24.21.0 で別々に評価
 5. Structured Append の全 diagnostics、split offsets/units、merge のデータ/エラー完全一致
-6. 実 PNG のすべての RGBA/quiet-zone pixel を検査してから jsQR、ZXing-C++、ZXing-Java で独立デコード
-7. 独立 reviewer による direct API property/fuzz、資源使用・URL相互運用性・パッケージ検査
+6. 実 PNG のすべての RGBA/quiet-zone pixel を検査してから jsQR、ZXing-C++、ZXing Java で独立デコード
+7. 独立 reviewer による direct API property/fuzz、資源使用・URL 相互運用性・パッケージ検査
 8. Cargo package から新規ディレクトリへ展開し、空の Cargo 状態でテスト・CLI インストール・下流利用
 9. 公開された正確な commit を対象に Windows/Linux/macOS × MSRV/stable CI、および公開 clone からの利用確認
 
@@ -31,9 +31,9 @@
 - shared-process concurrent matrices 256、typed malformed 18、主体の誤りを検出する 9 基本負の対照
 - jsQR: matrix 232 + actual PNG 232
 - ZXing-C++: matrix 706 + PNG 750、SA headers 135、FNC1 second 152 indicators × 2 routes
-- ZXing-Java: matrix 446 + PNG 446、SA headers 135、破損 32 シンボルで各 3 codewords の訂正を厳密確認
+- ZXing Java: matrix 446 + PNG 446、SA headers 135、破損 32 シンボルで各 3 codewords の訂正を厳密確認
 
-QR 内容が同じでも codeword・マスク・セグメント選択が違うケースは同一として数えません。独立 oracle が違う最適化方針を採るときは比較対象を明示します。canonical Kanji は Unicode の全 1,112,064 scalars に対する owner JS の対応集合と 13-bit 値を照合し、6,953 項目が完全一致しました。
+QR 内容が同じでも codeword・マスク・セグメント選択が違うケースは同一として数えません。独立 oracle が違う最適化方針を採るときは比較対象を明示します。canonical Kanji は Unicode の全 1,112,064 scalars に対する owner JS の対応集合と 13 bit 値を照合し、6,953 項目が完全一致しました。
 
 ## URL/IDNA 差分
 
@@ -43,7 +43,7 @@ GS1 dot-only path values の保全、bounded Unicode hostname profile、不正 A
 
 ## デコーダー制限の扱い
 
-実 PNG を読み取る strict lane ではマトリックスへの代替や PURE_BARCODE fallback を使いません。ZXing-Java は strict scale 3、C++ は default scale 8 で評価します。Java の scale 8 の一部読み取り挙動は独立した同一 pixel の PNG control と照合する別診断で、失敗を成功件数に含めません。すべてのデコーダーに真の blank image 負の対照を適用します。
+実 PNG を読み取る strict lane ではマトリックスへの代替や PURE_BARCODE fallback を使いません。ZXing Java は strict scale 3、C++ は default scale 8 で評価します。Java の scale 8 の一部読み取り挙動は独立した同一 pixel の PNG control と照合する別診断で、失敗を成功件数に含めません。すべてのデコーダーに真の blank image 負の対照を適用します。
 
 ## 再現
 
@@ -52,7 +52,7 @@ Rust 標準テストとパッケージ検査は README のコマンドで実行�
 ## 非主張・未実行
 
 - ISO/GS1 認証、全 Unicode/WHATWG、全カメラ/印刷実機を証明するものではありません
-- 32-bit は i686 compile-check。ローカル 32-bit 実行は行っていません
+- 32 bit は i686 compile-check。ローカル 32 bit 実行は行っていません
 - Miri と Rust sanitizer は未実行。導入済み stable/MSRV toolchain に該当 nightly 検証環境がありません
 - `no_std` / embedded target の互換性を主張しません
 - 有限 corpus/fuzz の成功は、あらゆる入力・任意の破損・OS メモリ枯渇の無害性を保証しません
